@@ -48,22 +48,6 @@ class _EditProductScreenState extends State<EditProductScreen> {
     productPriceController.dispose();
   }
 
-  // void addProduct() {
-  //   if (_addProductFormKey.currentState!.validate()) {
-  //     adminServices.addProduct(
-  //         context: context,
-  //         name: productNameController.text,
-  //         price: double.parse(productPriceController.text),
-  //         quantity: double.parse(productQuantityController.text),
-  //         category: productCategoryController.text,
-  //         onSuccess: () {
-  //           showSnackBar(context, 'Product Succesfully Added');
-  //           Navigator.popAndPushNamed(context, ProductScreen.routeName);
-  //           setState(() {});
-  //         });
-  //   }
-  // }
-
   void editProduct() {
     if (_editProductFormKey.currentState!.validate()) {
       adminService.editProduct(

@@ -18,6 +18,8 @@ class _AddUserScreenState extends State<AddUserScreen> {
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController userEmailController = TextEditingController();
   final TextEditingController userPasswordController = TextEditingController();
+  final TextEditingController userCompanyNameController =
+      TextEditingController();
 
   final _addUserFormKey = GlobalKey<FormState>();
   final AuthService authService = AuthService();
@@ -28,6 +30,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
     userNameController.dispose();
     userEmailController.dispose();
     userPasswordController.dispose();
+    userCompanyNameController.dispose();
   }
 
   void addUser() {
@@ -37,6 +40,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
           email: userEmailController.text,
           password: userPasswordController.text,
           name: userNameController.text,
+          companyName: userCompanyNameController.text,
           onSuccess: () {
             showSnackBar(context, 'User Succesfully Added');
             Navigator.popAndPushNamed(context, UserScreen.routeName);
@@ -97,6 +101,11 @@ class _AddUserScreenState extends State<AddUserScreen> {
                     controller: userPasswordController,
                     hintText: 'Password',
                     label: 'Password',
+                  ),
+                  CustomTextField(
+                    controller: userCompanyNameController,
+                    hintText: 'Company Name',
+                    label: 'Company Name',
                   ),
                   const SizedBox(
                     height: 20,

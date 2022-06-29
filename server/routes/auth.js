@@ -9,7 +9,7 @@ const auth = require("../middlewares/auth");
 
 authRouter.post("/api/signup", async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, companyName , address } = req.body;
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -24,6 +24,10 @@ authRouter.post("/api/signup", async (req, res) => {
       email,
       password: hashedPassword,
       name,
+      companyName,
+      address
+      
+
     });
     user = await user.save();
     res.json(user);

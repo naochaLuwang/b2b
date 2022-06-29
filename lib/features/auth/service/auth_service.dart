@@ -17,6 +17,7 @@ class AuthService {
     required String email,
     required String password,
     required String name,
+    required String companyName,
     required VoidCallback onSuccess,
   }) async {
     try {
@@ -25,6 +26,7 @@ class AuthService {
           name: name,
           password: password,
           email: email,
+          companyName: companyName,
           type: '',
           token: '',
           cart: [],
